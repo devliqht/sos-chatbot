@@ -72,7 +72,7 @@ export async function POST(
     const promptWithContext = `${systemPrompt}\n\nUser: ${message}`;
 
     // Generate streaming response using existing infrastructure
-    const streamGenerator = genaiService.generateStreamResponse(
+    const streamGenerator = await genaiService.generateStreamResponse(
       messages.length > 0 ? messages : promptWithContext
     );
 

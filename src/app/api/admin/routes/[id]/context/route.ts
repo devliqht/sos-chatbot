@@ -7,7 +7,7 @@ import {
 } from '@/lib/db';
 import { authenticateRequest } from '@/lib/auth';
 import { put } from '@vercel/blob';
-import pdf from 'pdf-parse/lib/pdf-parse';
+import { PDFParse } from 'pdf-parse';
 
 /**
  * POST /api/admin/routes/:id/context
@@ -94,8 +94,9 @@ export async function POST(
 
       if (file.type === 'application/pdf' || fileName.endsWith('.pdf')) {
         try {
-          const pdfData = await pdf(fileBuffer);
-          content = pdfData.text;
+          const parser = new PDFParse({ data: fileBuffer });
+          const result = await parser.getText();
+          content = result.text;
         } catch (err) {
           console.error('Error parsing PDF:', err);
           content = '[PDF content could not be parsed]';
@@ -169,7 +170,7 @@ export async function POST(
     return NextResponse.json(
       {
         error: 'Failed to add context',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
@@ -214,7 +215,7 @@ export async function GET(
 
     return NextResponse.json({
       success: true,
-      contexts: contexts.map((ctx) => ({
+      contexts: contexts.map(ctx => ({
         id: ctx.id,
         type: ctx.type,
         content: ctx.content?.substring(0, 200) + '...', // Preview
@@ -230,7 +231,7 @@ export async function GET(
     return NextResponse.json(
       {
         error: 'Failed to list contexts',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
