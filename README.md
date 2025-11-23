@@ -1,6 +1,6 @@
 # Student Org Suite (SOS) Chatbot Dynamic AI Platform
-
-A Next.js-powered platform that allows users to create custom AI chat endpoints with their own context. Built with Vertex AI (Gemini), PostgreSQL, and Vercel Blob storage.
+### A Next.js-powered platform that allows users to create custom AI chat endpoints with their own context. Built with Vertex AI (Gemini), PostgreSQL, and Vercel Blob storage.
+![TechStack](https://skills.syvixor.com/api/icons?perline=15&i=nextjs,tailwindcss,shadcnui,postgresql,neon,googlecloud,googlegemini,vercel,eslint,typescript)
 
 ## Architecture
 
@@ -13,4 +13,4 @@ A Next.js-powered platform that allows users to create custom AI chat endpoints 
 
 ### CIS2102 Finals Submission
 
-Developed
+Developed by Matt Cabarrubias
