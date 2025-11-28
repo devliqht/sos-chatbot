@@ -101,8 +101,8 @@ export default function AdminDashboard() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
-        <Card className="w-full max-w-md">
+      <div className="h-[calc(100vh-3.5rem)] bg-background flex items-center justify-center p-4">
+        <Card className="w-full max-w-md border-border">
           <CardHeader>
             <CardTitle>Admin Login</CardTitle>
             <CardDescription>
@@ -139,7 +139,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
+    <div className="h-[calc(100vh-3.5rem)] bg-background p-4 md:p-8 overflow-auto">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
@@ -166,7 +166,7 @@ export default function AdminDashboard() {
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {routes.map((route) => (
-            <Card key={route.id}>
+            <Card key={route.id} className="border-border">
               <CardHeader>
                 <CardTitle className="text-lg">{route.routeName}</CardTitle>
                 <CardDescription>{route.description}</CardDescription>
@@ -213,7 +213,7 @@ export default function AdminDashboard() {
         </div>
 
         {routes.length === 0 && !loading && (
-          <Card>
+          <Card className="border-border">
             <CardContent className="p-8 text-center">
               <p className="text-muted-foreground">
                 No custom routes yet. Create your first route to get started!

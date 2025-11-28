@@ -208,7 +208,7 @@ export default function EditRoutePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background p-4 md:p-8">
+      <div className="h-[calc(100vh-3.5rem)] bg-background p-4 md:p-8 overflow-auto">
         <div className="max-w-4xl mx-auto">
           <p>Loading...</p>
         </div>
@@ -217,7 +217,7 @@ export default function EditRoutePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
+    <div className="h-[calc(100vh-3.5rem)] bg-background p-4 md:p-8 overflow-auto">
       <div className="max-w-4xl mx-auto space-y-6">
         <div>
           <Button
@@ -240,7 +240,7 @@ export default function EditRoutePage() {
         )}
 
         {/* Route Settings */}
-        <Card>
+        <Card className="border-border">
           <CardHeader>
             <CardTitle>Route Settings</CardTitle>
             <CardDescription>Update route configuration</CardDescription>
@@ -285,7 +285,7 @@ export default function EditRoutePage() {
         </Card>
 
         {/* Add Context */}
-        <Card>
+        <Card className="border-border">
           <CardHeader>
             <CardTitle>Add Context</CardTitle>
             <CardDescription>
@@ -336,7 +336,7 @@ export default function EditRoutePage() {
         </Card>
 
         {/* Contexts List */}
-        <Card>
+        <Card className="border-border">
           <CardHeader>
             <CardTitle>Contexts ({contexts.length})</CardTitle>
             <CardDescription>

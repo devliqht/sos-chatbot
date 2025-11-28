@@ -35,6 +35,7 @@ export interface ChatRequest {
   message: string;
   sessionId?: string;
   context?: string;
+  endpoint?: string;
 }
 
 export interface GenerateRequest {

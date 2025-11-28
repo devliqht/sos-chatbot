@@ -58,7 +58,7 @@ export default function NewRoutePage() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
+    <div className="h-[calc(100vh-3.5rem)] bg-background p-4 md:p-8 overflow-auto">
       <div className="max-w-2xl mx-auto">
         <div className="mb-8">
           <Button
@@ -74,7 +74,7 @@ export default function NewRoutePage() {
           </p>
         </div>
 
-        <Card>
+        <Card className="border-border">
           <CardHeader>
             <CardTitle>Route Configuration</CardTitle>
             <CardDescription>

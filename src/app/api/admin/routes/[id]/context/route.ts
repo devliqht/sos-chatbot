@@ -7,7 +7,7 @@ import {
 } from '@/lib/db';
 import { authenticateRequest } from '@/lib/auth';
 import { put } from '@vercel/blob';
-import { PDFParse } from 'pdf-parse';
+import PDFParse from 'pdf-parse';
 
 /**
  * POST /api/admin/routes/:id/context
@@ -94,9 +94,8 @@ export async function POST(
 
       if (file.type === 'application/pdf' || fileName.endsWith('.pdf')) {
         try {
-          const parser = new PDFParse({ data: fileBuffer });
-          const result = await parser.getText();
-          content = result.text;
+          const data = await PDFParse(fileBuffer);
+          content = data.text;
         } catch (err) {
           console.error('Error parsing PDF:', err);
           content = '[PDF content could not be parsed]';

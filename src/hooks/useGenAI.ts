@@ -91,7 +91,8 @@ export function useGenAI(options?: UseGenAIOptions) {
     setResponse('');
 
     try {
-      const response = await fetch('/api/chat-stream', {
+      const endpoint = request.endpoint || '/api/chat-stream';
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

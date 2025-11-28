@@ -63,17 +63,14 @@ export async function PUT(
     }
 
     // Update the route
-    const updatedRoute = await updateCustomRoute(auth.userId, id, {
+    const updatedRoute = await updateCustomRoute(id, auth.userId, {
       route_name: body.routeName,
       description: body.description,
       system_prompt: body.systemPrompt,
     });
 
     if (!updatedRoute) {
-      return NextResponse.json(
-        { error: 'No changes made' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'No changes made' }, { status: 400 });
     }
 
     return NextResponse.json({
@@ -104,7 +101,7 @@ export async function PUT(
     return NextResponse.json(
       {
         error: 'Failed to update custom route',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
@@ -157,7 +154,7 @@ export async function DELETE(
     return NextResponse.json(
       {
         error: 'Failed to delete custom route',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
@@ -213,7 +210,7 @@ export async function GET(
     return NextResponse.json(
       {
         error: 'Failed to fetch custom route',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
